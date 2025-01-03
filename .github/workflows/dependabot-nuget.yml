@@ -50,6 +50,6 @@ jobs:
     - name: Restore NuGet packages
       run: dotnet restore --verbosity minimal
 
-    - name: Publish application
-      run: dotnet publish --configuration Release --output ./artifacts
+    - name: Pack project
+      run: dotnet pack src/Shorthand.HttpClientHAR/Shorthand.HttpClientHAR.csproj --configuration Release --output artifacts
       working-directory: ./
