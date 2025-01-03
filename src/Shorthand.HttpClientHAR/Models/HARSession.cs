@@ -20,11 +20,6 @@ public class HARSession {
     public string Serialize() {
         var root = new HARRoot {
             Log = new HARLog {
-                Version = "1.2",
-                Creator = new HARCreator {
-                    Name = "Shorthand.HttpClientHAR",
-                    Version = "1.0"
-                },
                 Entries = [.. _entries]
             }
         };

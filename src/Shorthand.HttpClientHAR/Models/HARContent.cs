@@ -5,7 +5,7 @@ public record HARContent {
     public int? Compression { get; set; }
     public required string MimeType { get; set; }
     public string? Text { get; set; }
-    public string? Encoding { get; set; } = "base64";
+    public string? Encoding { get; set; }
     public string? Comment { get; set; }
 
     private static readonly string[] _textMimeTypes = [
@@ -31,6 +31,7 @@ public record HARContent {
         string? encoding, text;
         if(cleanedMimeType is null || _textMimeTypes.Contains(cleanedMimeType, StringComparer.OrdinalIgnoreCase)) {
             encoding = null;
+            // TODO: Handle charset instead of assuming UTF-8
             text = System.Text.Encoding.UTF8.GetString(content);
         } else {
             encoding = "base64";

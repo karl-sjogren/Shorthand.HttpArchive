@@ -1,6 +1,8 @@
 # HttpClient HAR exporter
 
-MessageHander for `System.Net.HttpClient` that records and exports HTTP requests
+Message handler for `System.Net.HttpClient` that records and exports HTTP requests
 and responses in HAR format.
 
-<https://gitgrimbo.github.io/harviewer/master/>
+Built accoding to [HAR 1.2 specification](http://www.softwareishard.com/blog/har-12-spec/).
+
+Test utility for exported files: <https://gitgrimbo.github.io/harviewer/master/>

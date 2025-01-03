@@ -37,7 +37,7 @@ public record HARTimings {
 
         var blocked = -1d;
         if(timings.ConnectionEstablished is not null && timings.RequestLeftQueue is not null) {
-            blocked = (timings.ConnectionEstablished - timings.RequestLeftQueue)?.TotalMilliseconds ?? -1;
+            blocked = (timings.RequestLeftQueue - timings.ConnectionEstablished)?.TotalMilliseconds ?? -1;
         }
 
         return new HARTimings {
