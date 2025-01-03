@@ -55,7 +55,7 @@ public record HARRequest {
         return new HARRequest {
             Method = requestMessage.Method.Method,
             Url = requestMessage.RequestUri?.ToString() ?? string.Empty,
-            HttpVersion = HttpVersionHelper.GetHttpVersion(requestMessage.Version),
+            HttpVersion = HttpVersionHelper.GetHttpVersionString(requestMessage.Version),
             Cookies = cookies,
             Headers = headers,
             QueryString = queryString,
@@ -100,7 +100,7 @@ public record HARRequest {
             headersSize++; // space
             headersSize += requestMessage.RequestUri?.ToString().Length ?? 0; // /index.html
             headersSize++; // space
-            headersSize += HttpVersionHelper.GetHttpVersion(requestMessage.Version).Length; // HTTP/1.1
+            headersSize += HttpVersionHelper.GetHttpVersionString(requestMessage.Version).Length; // HTTP/1.1
             headersSize += 2; // \r\n
         }
 

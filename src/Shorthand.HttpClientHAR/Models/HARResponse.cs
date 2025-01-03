@@ -40,7 +40,7 @@ public record HARResponse {
         return new HARResponse {
             Status = (int)responseMessage.StatusCode,
             StatusText = responseMessage.ReasonPhrase ?? responseMessage.StatusCode.ToString(),
-            HttpVersion = HttpVersionHelper.GetHttpVersion(responseMessage.Version),
+            HttpVersion = HttpVersionHelper.GetHttpVersionString(responseMessage.Version),
             Cookies = cookies,
             Headers = headers,
             Content = HARContent.FromContent(content, contentMimeType),

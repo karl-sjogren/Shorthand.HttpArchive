@@ -1,7 +1,7 @@
 namespace Shorthand.HttpClientHAR.Internal;
 
 internal static class HttpVersionHelper {
-    internal static string GetHttpVersion(Version version) {
+    internal static string GetHttpVersionString(Version version) {
         if(version == System.Net.HttpVersion.Version10) {
             return "HTTP/1.0";
         } else if(version == System.Net.HttpVersion.Version11) {
