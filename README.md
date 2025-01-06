@@ -1,4 +1,4 @@
-# HttpClient HAR exporter
+# HttpClient HAR exporter [![codecov](https://codecov.io/gh/karl-sjogren/httpclient-har/graph/badge.svg?token=1Hj4r3GZiW)](https://codecov.io/gh/karl-sjogren/httpclient-har)
 
 Message handler for `System.Net.HttpClient` that records and exports HTTP requests
 and responses in HAR format.
