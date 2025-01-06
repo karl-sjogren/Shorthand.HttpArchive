@@ -20,7 +20,7 @@ public class TestController : Controller {
 
     [HttpGet("/json/404")]
     public IActionResult Json404() {
-        return Problem(detail: "Not Found", statusCode: 400);
+        return Problem(detail: "Not Found", statusCode: 404);
     }
 
     [HttpGet("/text/500")]
@@ -31,5 +31,17 @@ public class TestController : Controller {
     [HttpGet("/json/500")]
     public IActionResult Json500() {
         return Problem(detail: "Internal Server Error", statusCode: 500);
+    }
+
+    [HttpGet("/cookie/set")]
+    public IActionResult CookieSet() {
+        Response.Cookies.Append("test", "value");
+        return Ok();
+    }
+
+    [HttpGet("/cookie/get")]
+    public IActionResult CookieGet() {
+        var cookieValue = Request.Cookies["test"];
+        return Ok(cookieValue);
     }
 }

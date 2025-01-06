@@ -49,7 +49,9 @@ public class HARMessageHandler : DelegatingHandler {
         get => InnerHandler switch {
             HttpClientHandler handler => handler.CookieContainer,
             SocketsHttpHandler handler => handler.CookieContainer,
-            _ => null
+            _ => GetCookieContainer(InnerHandler)
         };
     }
+
+    internal virtual CookieContainer? GetCookieContainer(HttpMessageHandler? handler) => null;
 }

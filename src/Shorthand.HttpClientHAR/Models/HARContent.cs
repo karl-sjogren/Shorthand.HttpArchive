@@ -15,6 +15,7 @@ public record HARContent {
         "text/plain",
         "text/xml",
         "application/json",
+        "application/problem+json",
         "application/xml",
         "application/xhtml+xml",
         "application/rss+xml",
