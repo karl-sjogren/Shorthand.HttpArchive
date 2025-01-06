@@ -13,6 +13,17 @@ public class TestController : Controller {
         return new JsonResult(new { message = "Hello, World!" });
     }
 
+    [HttpGet("/binary/200")]
+    public IActionResult Binary200() {
+        return File([0x00, 0x01, 0x02, 0x03], "application/octet-stream");
+    }
+
+    [HttpGet("/image/200")]
+    public IActionResult Image200() {
+        var image = Convert.FromBase64String("R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==");
+        return File(image, "image/gif");
+    }
+
     [HttpGet("/text/404")]
     public IActionResult Text404() {
         return NotFound();
