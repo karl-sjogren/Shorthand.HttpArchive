@@ -170,7 +170,10 @@ jobs:
     - name: Restore NuGet packages
       run: dotnet restore --verbosity minimal
 
-    - name: Pack project
+    - name: Pack Shorthand.HttpArchive
+      run: dotnet pack src/Shorthand.HttpArchive/Shorthand.HttpArchive.csproj --configuration Release --output artifacts
+
+    - name: Pack Shorthand.HttpArchive.HttpClient
       run: dotnet pack src/Shorthand.HttpArchive.HttpClient/Shorthand.HttpArchive.HttpClient.csproj --configuration Release --output artifacts
 
     - name: Upload build artifacts
