@@ -1,7 +1,5 @@
 // Adapted from https://stackoverflow.com/a/74885933/547640, CC BY-SA 4.0
-using Shorthand.HttpArchive;
-
-namespace Shorthand.HttpClientHAR.Internal;
+namespace Shorthand.HttpArchive.HttpClient.Internal;
 
 internal sealed partial class HttpEventListener {
     internal record HttpRequestTimings {

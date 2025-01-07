@@ -1,7 +1,7 @@
 // Adapted from https://stackoverflow.com/a/74885933/547640, CC BY-SA 4.0
 using System.Diagnostics.Tracing;
 
-namespace Shorthand.HttpClientHAR.Internal;
+namespace Shorthand.HttpArchive.HttpClient.Internal;
 
 internal sealed partial class HttpEventListener : EventListener {
     // Constant necessary for attaching ActivityId to the events.

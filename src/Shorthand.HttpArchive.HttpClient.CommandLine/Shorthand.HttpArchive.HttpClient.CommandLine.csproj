@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shorthand.HttpClientHAR\Shorthand.HttpClientHAR.csproj" />
+    <ProjectReference Include="..\Shorthand.HttpArchive.HttpClient\Shorthand.HttpArchive.HttpClient.csproj" />
   </ItemGroup>
 
 </Project>

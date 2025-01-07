@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Shorthand.HttpClientHAR.Tests.Integration;
+namespace Shorthand.HttpArchive.HttpClient.Tests.Integration;
 
 public class TestController : Controller {
     [HttpGet("/text/200")]

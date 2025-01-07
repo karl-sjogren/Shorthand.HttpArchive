@@ -1,8 +1,7 @@
 using System.Net;
-using Shorthand.HttpClientHAR.Internal;
-using Shorthand.HttpArchive;
+using Shorthand.HttpArchive.HttpClient.Internal;
 
-namespace Shorthand.HttpClientHAR;
+namespace Shorthand.HttpArchive.HttpClient;
 
 public class HARMessageHandler : DelegatingHandler {
     private readonly TimeProvider _timeProvider;

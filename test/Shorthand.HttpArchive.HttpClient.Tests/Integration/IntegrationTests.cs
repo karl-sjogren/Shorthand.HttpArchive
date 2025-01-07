@@ -3,7 +3,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Testing.Handlers;
 
-namespace Shorthand.HttpClientHAR.Tests.Integration;
+namespace Shorthand.HttpArchive.HttpClient.Tests.Integration;
 
 public class IntegrationTests : IClassFixture<TestWebApplicationFactory> {
     private readonly TestWebApplicationFactory _factory;

@@ -1,12 +1,12 @@
 ﻿using System.IO.Abstractions;
-using Shorthand.HttpClientHAR;
+using Shorthand.HttpArchive.HttpClient;
 
 var harHandler = new HARMessageHandler {
     InnerHandler = new HttpClientHandler()
 };
 
 var httpClient = new HttpClient(harHandler);
-httpClient.DefaultRequestHeaders.Add("User-Agent", "Shorthand.HttpClientHAR.CommandLine");
+httpClient.DefaultRequestHeaders.Add("User-Agent", "Shorthand.HttpArchive.HttpClient.CommandLine");
 
 foreach(var url in args) {
     var request = new HttpRequestMessage(HttpMethod.Get, url);

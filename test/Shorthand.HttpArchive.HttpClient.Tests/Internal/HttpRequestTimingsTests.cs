@@ -1,6 +1,6 @@
-using Shorthand.HttpClientHAR.Internal;
+using Shorthand.HttpArchive.HttpClient.Internal;
 
-namespace Shorthand.HttpClientHAR.Tests.Internal;
+namespace Shorthand.HttpArchive.HttpClient.Tests.Internal;
 
 public class HARTimingsTests {
     [Fact]

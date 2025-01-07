@@ -53,5 +53,5 @@ jobs:
       run: dotnet restore --verbosity minimal
 
     - name: Pack project
-      run: dotnet pack src/Shorthand.HttpClientHAR/Shorthand.HttpClientHAR.csproj --configuration Release --output artifacts
+      run: dotnet pack src/Shorthand.HttpArchive.HttpClient/Shorthand.HttpArchive.HttpClient.csproj --configuration Release --output artifacts
       working-directory: ./

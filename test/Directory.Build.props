@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shorthand.HttpClientHAR.TestHelpers\Shorthand.HttpClientHAR.TestHelpers.csproj" Condition=" '$(ProjectName)' != 'Shorthand.HttpClientHAR.TestHelpers' " />
+    <ProjectReference Include="..\Shorthand.HttpArchive.HttpClient.TestHelpers\Shorthand.HttpArchive.HttpClient.TestHelpers.csproj" Condition=" '$(ProjectName)' != 'Shorthand.HttpArchive.HttpClient.TestHelpers' " />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -55,7 +55,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="coverlet.msbuild" Condition=" '$(ProjectName)' != 'Shorthand.HttpClientHAR.TestHelpers' ">
+    <PackageReference Include="coverlet.msbuild" Condition=" '$(ProjectName)' != 'Shorthand.HttpArchive.HttpClient.TestHelpers' ">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

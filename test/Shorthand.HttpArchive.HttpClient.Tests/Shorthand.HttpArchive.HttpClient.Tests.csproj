@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Shorthand.HttpClientHAR\Shorthand.HttpClientHAR.csproj" />
+    <ProjectReference Include="..\..\src\Shorthand.HttpArchive.HttpClient\Shorthand.HttpArchive.HttpClient.csproj" />
   </ItemGroup>
 
   <ItemGroup>

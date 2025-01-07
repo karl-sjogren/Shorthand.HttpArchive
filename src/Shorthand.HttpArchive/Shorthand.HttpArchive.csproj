@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <InternalsVisibleTo Include="Shorthand.HttpClientHAR" />
+    <InternalsVisibleTo Include="Shorthand.HttpArchive.HttpClient" />
   </ItemGroup>
 
 </Project>

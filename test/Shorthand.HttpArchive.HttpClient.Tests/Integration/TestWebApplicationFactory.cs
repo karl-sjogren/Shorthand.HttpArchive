@@ -1,7 +1,7 @@
 using System.IO.Abstractions;
 using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace Shorthand.HttpClientHAR.Tests.Integration;
+namespace Shorthand.HttpArchive.HttpClient.Tests.Integration;
 
 public class TestWebApplicationFactory : WebApplicationFactory<TestWebApplicationFactory.Startup> {
     protected override void ConfigureWebHost(IWebHostBuilder builder) {

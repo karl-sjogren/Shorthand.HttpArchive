@@ -9,13 +9,13 @@
         "type": "coreclr",
         "request": "launch",
         "preLaunchTask": "build",
-        "program": "${workspaceFolder}/src/Shorthand.HttpClientHAR.CommandLine/bin/Debug/net9.0/Shorthand.HttpClientHAR.CommandLine.dll",
+        "program": "${workspaceFolder}/src/Shorthand.HttpArchive.HttpClient.CommandLine/bin/Debug/net9.0/Shorthand.HttpArchive.HttpClient.CommandLine.dll",
         "args": [
           "https://www.xlent.se/",
           "https://www.skandiamaklarna.se/",
           "https://www.skandiamaklarna.se/contentassets/f4f3dad9e3604533a6872ee10e693eb4/adobestock_589618548_3840x2160px.png?format=png&width=1920&quality=70&hmac=4a665614f8d0859d590ac0e1af7e43aeceacd833fb67fb1612e6a3937714e48c"
         ],
-        "cwd": "${workspaceFolder}/src/Shorthand.HttpClientHAR.CommandLine/",
+        "cwd": "${workspaceFolder}/src/Shorthand.HttpArchive.HttpClient.CommandLine/",
         "stopAtEntry": false,
         "console": "integratedTerminal"
       },

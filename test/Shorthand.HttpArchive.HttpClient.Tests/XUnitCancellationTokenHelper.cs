@@ -1,6 +1,6 @@
-global using static Shorthand.HttpClientHAR.Tests.XUnitCancellationTokenHelper;
+global using static Shorthand.HttpArchive.HttpClient.Tests.XUnitCancellationTokenHelper;
 
-namespace Shorthand.HttpClientHAR.Tests;
+namespace Shorthand.HttpArchive.HttpClient.Tests;
 
 public static class XUnitCancellationTokenHelper {
     public static CancellationToken TestCancellationToken => TestContext.Current.CancellationToken;

@@ -2,7 +2,7 @@
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Diagnosers;
 
-namespace Shorthand.HttpClientHAR.Benchmarks;
+namespace Shorthand.HttpArchive.HttpClient.Benchmarks;
 
 [Config(typeof(Config))]
 public class SampleBenchmark {
