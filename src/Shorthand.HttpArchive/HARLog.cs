@@ -1,4 +1,4 @@
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
 public record HARLog {
     public string Version { get; set; } = "1.2";

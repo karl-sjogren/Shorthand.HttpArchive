@@ -1,8 +1,8 @@
 
 using System.Net;
-using Shorthand.HttpClientHAR.Internal;
+using Shorthand.HttpArchive.Internal;
 
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
 public record HARResponse {
     public required int Status { get; set; }

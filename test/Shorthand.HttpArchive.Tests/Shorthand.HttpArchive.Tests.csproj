@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Shorthand.HttpArchive\Shorthand.HttpArchive.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,4 +1,4 @@
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
 public record HARCacheRequest {
     public required DateTimeOffset? Expires { get; set; }

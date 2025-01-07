@@ -1,6 +1,6 @@
-using Shorthand.HttpClientHAR.Internal;
+using Shorthand.HttpArchive.Internal;
 
-namespace Shorthand.HttpClientHAR.Tests.Internal;
+namespace Shorthand.HttpArchive.Tests.Internal;
 
 public class HttpVersionHelperTests {
     [Theory]

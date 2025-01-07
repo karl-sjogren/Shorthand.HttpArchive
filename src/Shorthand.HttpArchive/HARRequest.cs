@@ -1,7 +1,7 @@
 using System.Net;
-using Shorthand.HttpClientHAR.Internal;
+using Shorthand.HttpArchive.Internal;
 
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
 public record HARRequest {
     public required string Method { get; set; }

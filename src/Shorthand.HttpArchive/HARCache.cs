@@ -1,4 +1,4 @@
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
 public record HARCache {
     public HARCacheRequest? BeforeRequest { get; set; }

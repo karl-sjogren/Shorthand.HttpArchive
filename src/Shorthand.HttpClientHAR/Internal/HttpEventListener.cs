@@ -3,7 +3,7 @@ using System.Diagnostics.Tracing;
 
 namespace Shorthand.HttpClientHAR.Internal;
 
-internal sealed class HttpEventListener : EventListener {
+internal sealed partial class HttpEventListener : EventListener {
     // Constant necessary for attaching ActivityId to the events.
     public const EventKeywords TasksFlowActivityIds = (EventKeywords)0x80;
     private readonly AsyncLocal<HttpRequestTimingDataRaw> _timings = new();
@@ -115,27 +115,6 @@ internal sealed class HttpEventListener : EventListener {
             ResponseContentStart = raw.ResponseContentStart,
             ResponseContentDuration = raw.ResponseContentStop - raw.ResponseContentStart
         };
-    }
-
-    internal record HttpRequestTimings {
-        public DateTimeOffset? RequestStart { get; init; }
-        public TimeSpan? RequestDuration { get; init; }
-        public DateTimeOffset? DnsStart { get; init; }
-        public TimeSpan? DnsDuration { get; init; }
-        public DateTimeOffset? SslHandshakeStart { get; init; }
-        public TimeSpan? SslHandshakeDuration { get; init; }
-        public DateTimeOffset? SocketConnectStart { get; init; }
-        public TimeSpan? SocketConnectDuration { get; init; }
-        public DateTimeOffset? ConnectionEstablished { get; init; }
-        public DateTimeOffset? RequestLeftQueue { get; init; }
-        public DateTimeOffset? RequestHeadersStart { get; init; }
-        public TimeSpan? RequestHeadersDuration { get; init; }
-        public DateTimeOffset? RequestContentStart { get; init; }
-        public TimeSpan? RequestContentDuration { get; init; }
-        public DateTimeOffset? ResponseHeadersStart { get; init; }
-        public TimeSpan? ResponseHeadersDuration { get; init; }
-        public DateTimeOffset? ResponseContentStart { get; init; }
-        public TimeSpan? ResponseContentDuration { get; init; }
     }
 
     private record HttpRequestTimingDataRaw {

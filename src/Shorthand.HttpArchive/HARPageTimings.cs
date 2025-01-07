@@ -1,4 +1,4 @@
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
 public record HARPageTimings {
     public int? OnContentLoad { get; set; } = -1;

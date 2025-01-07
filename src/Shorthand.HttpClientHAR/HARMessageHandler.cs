@@ -1,6 +1,6 @@
 using System.Net;
 using Shorthand.HttpClientHAR.Internal;
-using Shorthand.HttpClientHAR.Models;
+using Shorthand.HttpArchive;
 
 namespace Shorthand.HttpClientHAR;
 
@@ -37,7 +37,7 @@ public class HARMessageHandler : DelegatingHandler {
             Request = await HARRequest.FromRequestAsync(request, preRequestCookieContainer, cancellationToken),
             Response = await HARResponse.FromResponseAsync(response, InnerCookieContainer, cancellationToken),
             Cache = new HARCache(),
-            Timings = HARTimings.FromTimings(timings)
+            Timings = timings.ToHARTimings(),
         };
 
         _session.AddEntry(harEntry);

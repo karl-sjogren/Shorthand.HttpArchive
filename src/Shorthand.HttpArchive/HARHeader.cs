@@ -1,6 +1,6 @@
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
-public record HARQueryStringValue {
+public record HARHeader {
     public required string Name { get; set; }
     public required string Value { get; set; }
     public string? Comment { get; set; }

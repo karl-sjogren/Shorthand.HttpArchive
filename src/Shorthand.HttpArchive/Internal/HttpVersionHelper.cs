@@ -1,4 +1,4 @@
-namespace Shorthand.HttpClientHAR.Internal;
+namespace Shorthand.HttpArchive.Internal;
 
 internal static class HttpVersionHelper {
     internal static string GetHttpVersionString(Version version) {

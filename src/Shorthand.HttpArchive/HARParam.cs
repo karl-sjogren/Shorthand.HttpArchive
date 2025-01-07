@@ -1,4 +1,4 @@
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
 public record HARParam {
     public required string Name { get; set; }

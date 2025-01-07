@@ -233,6 +233,58 @@ public class IntegrationTests : IClassFixture<TestWebApplicationFactory> {
         entry2.Request.Cookies[0].Value.ShouldBe("value");
     }
 
+    [Fact(Skip = "Need to implement this manually first")]
+    public async Task TestRedirect301Async() {
+        var handler = new HARMessageHandler();
+        using var client = _factory.CreateDefaultClient(handler);
+
+        var response = await client.GetAsync("/redirect/301", TestCancellationToken);
+        var content = await response.Content.ReadAsStringAsync(TestCancellationToken);
+
+        var session = handler.GetSession();
+
+        session.Entries.Count.ShouldBe(2);
+
+        var entry1 = session.Entries[0];
+
+        entry1.Request.Url.ShouldBe("http://localhost/redirect/301");
+        entry1.Request.Method.ShouldBe("GET");
+        entry1.Response.Status.ShouldBe(301);
+
+        var entry2 = session.Entries[1];
+
+        entry2.Request.Url.ShouldBe("http://localhost/redirect/target");
+        entry2.Request.Method.ShouldBe("GET");
+        entry2.Response.Status.ShouldBe(200);
+        entry2.Response.Content.Text.ShouldBe("Redirect Target");
+    }
+
+    [Fact(Skip = "Need to implement this manually first")]
+    public async Task TestRedirect302Async() {
+        var handler = new HARMessageHandler();
+        using var client = _factory.CreateDefaultClient(handler);
+
+        var response = await client.GetAsync("/redirect/302", TestCancellationToken);
+        var content = await response.Content.ReadAsStringAsync(TestCancellationToken);
+
+        var session = handler.GetSession();
+
+        session.Entries.Count.ShouldBe(2);
+
+        var entry1 = session.Entries[0];
+
+        entry1.Request.Url.ShouldBe("http://localhost/redirect/302");
+        entry1.Request.Method.ShouldBe("GET");
+        entry1.Response.Status.ShouldBe(302);
+
+        var entry2 = session.Entries[1];
+
+        entry2.Request.Url.ShouldBe("http://localhost/redirect/target");
+        entry2.Request.Method.ShouldBe("GET");
+        entry2.Response.Status.ShouldBe(200);
+        entry2.Response.Content.Text.ShouldBe("Redirect Target");
+    }
+
     private class TestHARMessageHandlerForCookies : HARMessageHandler {
         internal override CookieContainer? GetCookieContainer(HttpMessageHandler? handler) {
             if(handler is CookieContainerHandler cookieContainerHandler) {

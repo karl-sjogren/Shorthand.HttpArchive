@@ -1,7 +1,6 @@
 using Shorthand.HttpClientHAR.Internal;
-using Shorthand.HttpClientHAR.Models;
 
-namespace Shorthand.HttpClientHAR.Tests.Models;
+namespace Shorthand.HttpClientHAR.Tests.Internal;
 
 public class HARTimingsTests {
     [Fact]
@@ -21,7 +20,7 @@ public class HARTimingsTests {
             ResponseHeadersStart = DateTimeOffset.Parse("2025-01-03T00:00:04.25Z")
         };
 
-        var result = HARTimings.FromTimings(timings);
+        var result = timings.ToHARTimings();
 
         result.Blocked.ShouldBe(1_000);
         result.Dns.ShouldBe(120);

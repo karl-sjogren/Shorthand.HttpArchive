@@ -1,4 +1,4 @@
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
 public record HARPage {
     public required DateTimeOffset StartedDateTime { get; set; }

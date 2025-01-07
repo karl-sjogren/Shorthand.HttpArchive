@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
 public record HARCookie {
     public required string Name { get; set; }

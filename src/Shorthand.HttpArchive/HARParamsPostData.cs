@@ -2,7 +2,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Web;
 
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
 public record HARParamsPostData : HARPostDataBase {
     public required HARParam[] Params { get; set; }

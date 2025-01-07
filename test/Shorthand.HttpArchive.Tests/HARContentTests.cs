@@ -1,6 +1,4 @@
-using Shorthand.HttpClientHAR.Models;
-
-namespace Shorthand.HttpClientHAR.Tests.Models;
+namespace Shorthand.HttpArchive.Tests;
 
 public class HARContentTests {
     [Fact]

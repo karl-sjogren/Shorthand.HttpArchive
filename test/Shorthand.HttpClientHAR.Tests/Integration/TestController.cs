@@ -55,4 +55,19 @@ public class TestController : Controller {
         var cookieValue = Request.Cookies["test"];
         return Ok(cookieValue);
     }
+
+    [HttpGet("/redirect/301")]
+    public IActionResult Redirect301() {
+        return RedirectPermanent("/redirect/target");
+    }
+
+    [HttpGet("/redirect/302")]
+    public IActionResult Redirect302() {
+        return Redirect("/redirect/target");
+    }
+
+    [HttpGet("/redirect/target")]
+    public IActionResult RedirectTarget() {
+        return Ok("Redirect Target");
+    }
 }

@@ -1,4 +1,4 @@
-namespace Shorthand.HttpClientHAR.Models;
+namespace Shorthand.HttpArchive;
 
 public abstract record HARPostDataBase {
     public string? MimeType { get; set; }
