@@ -1,7 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <Title>Http Archive</Title>
+    <Authors>Karl-Johan Sjögren</Authors>
+    <Description>Reading and writing of Http Archive (HAR) files.</Description>
+    <PackageTags>shorthand;http-archive;har</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <InternalsVisibleTo Include="Shorthand.HttpArchive.HttpClient" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>

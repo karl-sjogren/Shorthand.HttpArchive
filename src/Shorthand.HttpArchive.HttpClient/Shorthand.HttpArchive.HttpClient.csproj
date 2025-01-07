@@ -1,11 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>Karls.Templates</PackageId>
     <Title>HttpClient HAR exporter</Title>
     <Authors>Karl-Johan Sjögren</Authors>
     <Description>Message handler for System.Net.HttpClient that records and exports HTTP requests and responses in HAR format.</Description>
-    <PackageTags>shorthand;httpclient;har</PackageTags>
+    <PackageTags>shorthand;httpclient;http-archive;har</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
