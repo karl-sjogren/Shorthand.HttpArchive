@@ -10,7 +10,7 @@ public record HARRequest {
     public required HARCookie[] Cookies { get; set; }
     public required HARHeader[] Headers { get; set; }
     public required HARQueryStringValue[] QueryString { get; set; }
-    public required HARPostDataBase? PostData { get; set; }
+    public HARPostDataBase? PostData { get; set; }
     public required int HeadersSize { get; set; }
     public required long BodySize { get; set; }
     public string? Comment { get; set; }

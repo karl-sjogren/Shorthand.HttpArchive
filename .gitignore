@@ -402,3 +402,4 @@ FodyWeavers.xsd
 
 # HAR files
 *.har
+!**/Resources/*.har

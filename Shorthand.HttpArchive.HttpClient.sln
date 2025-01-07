@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorthand.HttpArchive.HttpC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5C0D664E-A915-4178-B4E4-4FF80DCEE8C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorthand.HttpArchive.HttpClient.TestHelpers", "test\Shorthand.HttpArchive.HttpClient.TestHelpers\Shorthand.HttpArchive.HttpClient.TestHelpers.csproj", "{1BEA48BC-D268-4530-8C03-18A6E546D40C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorthand.HttpArchive.TestHelpers", "test\Shorthand.HttpArchive.TestHelpers\Shorthand.HttpArchive.TestHelpers.csproj", "{1BEA48BC-D268-4530-8C03-18A6E546D40C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorthand.HttpArchive.HttpClient.Tests", "test\Shorthand.HttpArchive.HttpClient.Tests\Shorthand.HttpArchive.HttpClient.Tests.csproj", "{749367F0-7F55-4AA8-9A10-3F22AF4FDD43}"
 EndProject
