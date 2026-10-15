@@ -65,6 +65,7 @@ public record HARResponse {
 
         return headersSize;
     }
+
     private static KeyValuePair<string, IEnumerable<string>>[] GetResponseHeaders(HttpResponseMessage responseMessage) {
         var responseHeaders = responseMessage.Headers.ToArray();
 
