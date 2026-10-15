@@ -65,7 +65,7 @@ jobs:
       run: dotnet test --coverage --coverage-output-format cobertura --coverage-settings ./test/coverage.config --report-trx --no-build --configuration Release --no-progress
 
     - name: Upload test results
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: net-test-results
         path: |
@@ -85,25 +85,10 @@ jobs:
       uses: actions/checkout@v7
 
     - name: Download .NET tests results
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8
       with:
         name: net-test-results
         path: ./
-
-    - name: Create history folder
-      run: mkdir ./coverage-history
-      working-directory: ./
-
-    - name: Download historial coverage
-      uses: dawidd6/action-download-artifact@v7
-      with:
-        workflow_conclusion: success
-        branch: ${{ github.head_ref }}
-        name: coverage-history
-        path: ./coverage-history
-        check_artifacts:  true
-        search_artifacts: true
-        if_no_artifact_found: ignore
 
     - name: Install .NET
       uses: actions/setup-dotnet@v6
@@ -115,13 +100,12 @@ jobs:
       with:
         reports: './**/coverage.cobertura.xml;./**/cobertura-coverage.xml'
         targetdir: 'coverage-report'
-        historydir: 'coverage-history'
         reporttypes: 'Html;MarkdownSummary;MarkdownDeltaSummary;Cobertura'
         assemblyfilters: '-xunit*'
         verbosity: 'Info'
 
     - name: Upload coverage report
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: coverage-report
         path: coverage-report
@@ -133,12 +117,6 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: coverage-report/Cobertura.xml
-
-    - name: Upload coverage history
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage-history
-        path: coverage-history
 
   net-build:
     name: .NET build
@@ -165,7 +143,7 @@ jobs:
       run: dotnet pack src/Shorthand.HttpArchive.HttpClient/Shorthand.HttpArchive.HttpClient.csproj --configuration Release --output artifacts
 
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: packages
         path: ./artifacts/
@@ -186,7 +164,7 @@ jobs:
         sparse-checkout-cone-mode: false
 
     - name: Download artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8
       with:
         name: packages
         path: ./artifacts/
@@ -196,8 +174,12 @@ jobs:
       with:
         global-json-file: global.json
 
+    - name: NuGet login (OIDC → temp API key)
+      uses: NuGet/login@v1
+      id: login
+      with:
+        user: ${{ secrets.NUGET_PROFILE }}
+
     - name: Publish package to NuGet.org
-      env:
-        NUGET_KEY: ${{ secrets.NUGET_KEY }}
-      run: dotnet nuget push artifacts/*.nupkg --api-key $NUGET_KEY --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push artifacts/*.nupkg --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
       working-directory: ./
