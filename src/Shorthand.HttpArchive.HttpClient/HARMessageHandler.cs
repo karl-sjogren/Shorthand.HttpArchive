@@ -5,12 +5,16 @@ namespace Shorthand.HttpArchive.HttpClient;
 
 public class HARMessageHandler : DelegatingHandler {
     private readonly TimeProvider _timeProvider;
+    private readonly HAROptions _options;
     private readonly HARSession _session;
 
     public HARMessageHandler() : this(TimeProvider.System, null) { }
 
-    public HARMessageHandler(TimeProvider timeProvider, HARSession? session = null) {
+    public HARMessageHandler(TimeProvider timeProvider, HAROptions? options = null) : this(timeProvider, options, null) { }
+
+    public HARMessageHandler(TimeProvider timeProvider, HAROptions? options = null, HARSession? session = null) {
         _timeProvider = timeProvider;
+        _options = options ?? new HAROptions();
         _session = session ?? new HARSession();
     }
 
@@ -33,8 +37,8 @@ public class HARMessageHandler : DelegatingHandler {
         var harEntry = new HAREntry {
             StartedDateTime = _timeProvider.GetLocalNow(),
             Time = requestDuration,
-            Request = await HARRequest.FromRequestAsync(request, preRequestCookieContainer, cancellationToken),
-            Response = await HARResponse.FromResponseAsync(response, InnerCookieContainer, cancellationToken),
+            Request = await HARRequest.FromRequestAsync(request, preRequestCookieContainer, _options, cancellationToken),
+            Response = await HARResponse.FromResponseAsync(response, InnerCookieContainer, _options, cancellationToken),
             Cache = new HARCache(),
             Timings = timings.ToHARTimings(),
         };
