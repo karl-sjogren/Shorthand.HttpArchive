@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.Json;
 
-namespace Shorthand.HttpArchive.HttpClient.TestHelpers;
+namespace Shorthand.HttpArchive.TestHelpers;
 
 public static class Resources {
     private static readonly JsonSerializerOptions _serializerOptions = new(JsonSerializerDefaults.Web);
@@ -76,11 +76,11 @@ public static class Resources {
                 return false;
             }
 
-            if(!assemblyName.StartsWith("Shorthand.HttpArchive.HttpClient.", StringComparison.Ordinal)) {
+            if(!assemblyName.StartsWith("Shorthand.HttpArchive.", StringComparison.Ordinal)) {
                 return false;
             }
 
-            if(assemblyName == "Shorthand.HttpArchive.HttpClient.TestHelpers") {
+            if(assemblyName == "Shorthand.HttpArchive.TestHelpers") {
                 return false;
             }
 

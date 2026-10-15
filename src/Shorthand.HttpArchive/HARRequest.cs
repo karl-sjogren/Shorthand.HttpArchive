@@ -10,7 +10,7 @@ public record HARRequest {
     public required HARCookie[] Cookies { get; set; }
     public required HARHeader[] Headers { get; set; }
     public required HARQueryStringValue[] QueryString { get; set; }
-    public required HARPostDataBase? PostData { get; set; }
+    public HARPostDataBase? PostData { get; set; }
     public required int HeadersSize { get; set; }
     public required long BodySize { get; set; }
     public string? Comment { get; set; }
@@ -18,15 +18,21 @@ public record HARRequest {
     private const int _extraSizePerHeader = 4; // ": \r\n"
     private const int _endOfHeadersSize = 4; // "\r\n\r\n"
 
-    internal static async Task<HARRequest> FromRequestAsync(HttpRequestMessage requestMessage, CookieContainer? cookieContainer, CancellationToken cancellationToken) {
-        var requestHeaders = GetRequestHeaders(requestMessage, cookieContainer);
+    internal static async Task<HARRequest> FromRequestAsync(HttpRequestMessage requestMessage, CookieContainer? cookieContainer, HAROptions options, CancellationToken cancellationToken) {
+        var requestHeaders = GetRequestHeaders(requestMessage, cookieContainer, options);
         var headers = requestHeaders.SelectMany(x => x.Value.Select(y => new HARHeader { Name = x.Key, Value = y })).ToArray();
 
         var cookies = Array.Empty<HARCookie>();
         if(cookieContainer is not null && requestMessage.RequestUri is not null) {
             cookies = cookieContainer
                 .GetCookies(requestMessage.RequestUri)
-                .Select(HARCookie.FromCookie)
+                .Select(cookie => {
+                    if(options.MaskCookies.Any(mask => string.Equals(mask, cookie.Name, StringComparison.OrdinalIgnoreCase))) {
+                        return new HARCookie { Name = cookie.Name, Value = "<Redacted>" };
+                    }
+
+                    return HARCookie.FromCookie(cookie);
+                })
                 .ToArray();
         }
 
@@ -39,6 +45,10 @@ public record HARRequest {
                 var parts = x.Split("=");
                 if(parts.Length < 2) {
                     return null;
+                }
+
+                if(options.MaskQueryParameters.Any(mask => string.Equals(mask, parts[0], StringComparison.OrdinalIgnoreCase))) {
+                    return new HARQueryStringValue { Name = parts[0], Value = "<Redacted>" };
                 }
 
                 return new HARQueryStringValue { Name = parts[0], Value = parts[1] };
@@ -66,7 +76,7 @@ public record HARRequest {
         };
     }
 
-    private static KeyValuePair<string, IEnumerable<string>>[] GetRequestHeaders(HttpRequestMessage requestMessage, CookieContainer? cookieContainer) {
+    private static KeyValuePair<string, IEnumerable<string>>[] GetRequestHeaders(HttpRequestMessage requestMessage, CookieContainer? cookieContainer, HAROptions options) {
         var requestHeaders = requestMessage.Headers.ToArray();
         if(requestMessage.RequestUri is not null) {
             requestHeaders = [.. requestHeaders, new KeyValuePair<string, IEnumerable<string>>("Host", [requestMessage.RequestUri.Host])];
@@ -79,8 +89,26 @@ public record HARRequest {
         if(cookieContainer is not null && requestMessage.RequestUri is not null) {
             var cookieHeader = cookieContainer.GetCookieHeader(requestMessage.RequestUri);
             if(!string.IsNullOrEmpty(cookieHeader)) {
-                requestHeaders = [.. requestHeaders, new KeyValuePair<string, IEnumerable<string>>("Cookie", [cookieHeader])];
+                if(options.MaskCookies.Length > 0) {
+                    if(options.MaskCookies.Any(value => cookieHeader.Contains(value, StringComparison.OrdinalIgnoreCase))) {
+                        requestHeaders = [.. requestHeaders, new KeyValuePair<string, IEnumerable<string>>("Cookie", ["<Redacted>"])];
+                    }
+                } else {
+                    requestHeaders = [.. requestHeaders, new KeyValuePair<string, IEnumerable<string>>("Cookie", [cookieHeader])];
+                }
             }
+        }
+
+        if(options.MaskHeaders.Length > 0) {
+            requestHeaders = requestHeaders
+                .Select(header => {
+                    if(options.MaskHeaders.Any(mask => string.Equals(mask, header.Key, StringComparison.OrdinalIgnoreCase))) {
+                        return new KeyValuePair<string, IEnumerable<string>>(header.Key, ["<Redacted>"]);
+                    }
+
+                    return header;
+                })
+                .ToArray();
         }
 
         return requestHeaders;

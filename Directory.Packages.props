@@ -1,29 +1,34 @@
 <Project>
   <ItemGroup>
-    <GlobalPackageReference Include="DotNet.ReproducibleBuilds" Version="1.2.25" />
+    <GlobalPackageReference Include="DotNet.ReproducibleBuilds" Version="2.0.5" />
     <GlobalPackageReference Include="Karls.Analyzers" Version="0.4.3" />
-    <GlobalPackageReference Include="Roslynator.Analyzers" Version="4.12.10" />
-    <GlobalPackageReference Include="Roslynator.Formatting.Analyzers" Version="4.12.10" />
+    <GlobalPackageReference Include="Roslynator.Analyzers" Version="5.0.1" />
+    <GlobalPackageReference Include="Roslynator.Formatting.Analyzers" Version="5.0.1" />
     <GlobalPackageReference Include="TestableIO.System.IO.Abstractions.Analyzers" Version="2022.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="BenchmarkDotNet" Version="0.14.0" />
-    <PackageVersion Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.14.0" />
+    <PackageVersion Include="BenchmarkDotNet" Version="0.15.8" />
+    <PackageVersion Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.15.8" />
     <PackageVersion Include="coverlet.msbuild" Version="6.0.2" />
     <PackageVersion Include="FakeItEasy.Analyzer.CSharp" Version="6.1.1" />
-    <PackageVersion Include="FakeItEasy" Version="8.3.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.11" Condition=" '$(TargetFramework)' == 'net8.0' " />
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.0" Condition=" '$(TargetFramework)' == 'net9.0' " />
+    <PackageVersion Include="FakeItEasy" Version="9.0.0" />
+    <PackageVersion Include="GitHubActionsTestLogger" Version="3.0.5" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.32" Condition=" '$(TargetFramework)' == 'net8.0' " />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.21" Condition=" '$(TargetFramework)' == 'net9.0' " />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.13" Condition=" '$(TargetFramework)' == 'net10.0' " />
     <PackageVersion Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="3.3.4" />
-    <PackageVersion Include="Microsoft.Extensions.Diagnostics.Testing" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" Condition=" '$(TargetFramework)' == 'net8.0' " />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.0" Condition=" '$(TargetFramework)' == 'net9.0' " />
-    <PackageVersion Include="Microsoft.Extensions.TimeProvider.Testing" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
-    <PackageVersion Include="Shouldly" Version="4.2.1" />
-    <PackageVersion Include="TestableIO.System.IO.Abstractions.TestingHelpers" Version="21.2.1" />
-    <PackageVersion Include="TestableIO.System.IO.Abstractions.Wrappers" Version="21.2.1" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.0" />
-    <PackageVersion Include="xunit.v3" Version="1.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Diagnostics.Testing" Version="9.10.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.3" Condition=" '$(TargetFramework)' == 'net8.0' " />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.21" Condition=" '$(TargetFramework)' == 'net9.0' " />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.13" Condition=" '$(TargetFramework)' == 'net10.0' " />
+    <PackageVersion Include="Microsoft.Extensions.TimeProvider.Testing" Version="9.10.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
+    <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.12.0" />
+    <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="2.5.1" />
+    <PackageVersion Include="Shouldly" Version="4.3.0" />
+    <PackageVersion Include="TestableIO.System.IO.Abstractions.TestingHelpers" Version="22.3.0" />
+    <PackageVersion Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.3.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.1" />
+    <PackageVersion Include="xunit.v3" Version="4.0.2" />
   </ItemGroup>
 </Project>

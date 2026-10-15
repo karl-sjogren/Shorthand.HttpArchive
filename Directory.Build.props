@@ -1,9 +1,9 @@
 <Project>
   <PropertyGroup>
     <!-- Solution settings -->
-    <Version>0.0.5</Version>
+    <Version>0.1.0</Version>
     <LangVersion>latest</LangVersion>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <UserSecretsId>d639a319-86f9-4af2-92bc-0db8c8ff7577</UserSecretsId>

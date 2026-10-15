@@ -1,21 +1,13 @@
-using System.Text.Json;
-using System.Text.Json.Serialization;
-
 namespace Shorthand.HttpArchive;
 
 public class HARSession {
-    private readonly List<HAREntry> _entries = new();
+    private readonly List<HAREntry> _entries = [];
 
     public IReadOnlyList<HAREntry> Entries => _entries;
 
     internal void AddEntry(HAREntry entry) {
         _entries.Add(entry);
     }
-
-    private static readonly JsonSerializerOptions _serializerOptions = new(JsonSerializerDefaults.Web) {
-        WriteIndented = true,
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-    };
 
     public string Serialize() {
         var root = new HARRoot {
@@ -24,6 +16,6 @@ public class HARSession {
             }
         };
 
-        return JsonSerializer.Serialize(root, _serializerOptions);
+        return HARSerializer.Serialize(root);
     }
 }
